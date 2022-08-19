@@ -7,10 +7,10 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 
-const OUTPUT_DIR = path.resolve(_dirname, "output");
-const outputPath = path.join(OUTPUT_DIR, "team.html");
+const folder_dir = path.resolve(_dirname, "output");
+// const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const teamMember = [];
+const teamMembers = [];
 
 
 const managerPrompt = () => {
@@ -35,11 +35,10 @@ const managerPrompt = () => {
             type: 'input',
             message: 'What is their office number',
             },
-    ])
 
-    .then(responses => {
-        console.log(responses);
-        const manager = new Manager(responses.managerName, response.employeeId, responses.email, responses.officeNumber)
+    ]).then(responses => {
+        console.log("-------------/n" + responses);
+        const manager = new Manager(responses.managerName, responses.employeeId, responses.email, responses.officeNumber)
         teamMembers.push(manager);
         
         addTeam();
@@ -53,21 +52,21 @@ inquirer.prompt([{
     type: 'list',
     message: 'What type of employee would you like to add to your team?',
     name: 'addEmployeePrompt',
-    choice: ['Manager', 'Engineer', 'Intern', 'Im finished']
+    choices: ['Manager', 'Engineer', 'Intern', 'Team is completed!']
 
 }]).then(function (userInput){
     switch(userInput.addEmployeePrompt) {
         case "Manager":
-            addManager();
+            managerPrompt();
             break;
         case "Engineer":
-            addEngineer();
+            engineerPrompt();
             break;
         case "Intern":
-            addIntern();
+            internPrompt();
             break;
         default:
-            console.log('please select a team member');
+            teamCompleted();
         
     }
 
@@ -75,7 +74,7 @@ inquirer.prompt([{
 }
 
 function engineerPrompt() {
-    inquirer.prompt([
+   return inquirer.prompt([
         {
         name: 'engineerName',
         type: 'input',
@@ -98,19 +97,19 @@ function engineerPrompt() {
         },
     ])
     .then(responses => {
-        console.log(engineer)
-        const engineer = new Engineer(responses.engineerName, response.employeeId, responses.email, responses.github)
+        console.log("-------------/n" + responses)
+        const engineer = new Engineer(responses.engineerName, responses.employeeId, responses.email, responses.github)
         teamMembers.push(engineer);
         addTeam();
     })
 }
 
 function internPrompt() {
-    inquirer.prompt([
+   return inquirer.prompt([
         {
         name: 'manger name',
         type: 'input',
-        message: 'Please type your managers name',
+        message: 'Please type your Interns name',
         },
         {
         name: 'employee id',
@@ -129,11 +128,20 @@ function internPrompt() {
         },
     ])
     .then(responses => {
-        console.log(intern)
-        const intern = new Intern(responses.internName, response.employeeId, responses.email, responses.school)
-        teamMembers.push(manager);
+        console.log("-------------/n" + responses)
+        const intern = new Intern(responses.internName, responses.employeeId, responses.email, responses.school)
+        teamMembers.push(intern);
         addTeam();
     })
+}
+
+const teamCompleted= () => {
+// Outputting team to a team directory
+if (!fs.exisitSync(folder_dir)) {
+    fs.mkdirSync(folder_dir)
+}
+fs.writeFileSync(outputPath, generateSite(teamMembers), "utf-8")
+
 }
 
 

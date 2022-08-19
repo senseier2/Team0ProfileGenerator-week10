@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/senseier2/Team0ProfileGenerator-week10#readme",
   "dependencies": {
+    "bootstrap": "^5.2.0",
     "inquirer": "^8.2.4"
   },
   "devDependencies": {
