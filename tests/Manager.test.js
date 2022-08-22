@@ -1,5 +1,5 @@
 const Manager = require('../lib/Manager');
-const manager = new Manager('15274826', 'Eric', 'Eric@cowork.com', '124');
+const manager = new Manager('Eric', '15274826', 'Eric@cowork.com', '124');
 
 describe('employeeData', () => {
     it('Collects the employee data values', () => {

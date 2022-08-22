@@ -1,5 +1,5 @@
 const Employee = require('../lib/Employee');
-const employee = new Employee('8975426', 'Nahian', 'nahian@cowork.com');
+const employee = new Employee('Nahian', '8975426', 'nahian@cowork.com');
 
 describe('employeeData', () => {
     it('Collects the employee data values', () => {

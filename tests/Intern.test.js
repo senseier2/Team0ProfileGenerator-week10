@@ -1,5 +1,5 @@
 const Intern = require('../lib/Intern');
-const intern = new Intern('9887653', 'Ivan', 'Ivan@cowork.com', 'Bootcamp');
+const intern = new Intern('Ivan', '9887653', 'Ivan@cowork.com', 'Bootcamp');
 
 describe('internData', () => {
     it('Collects the employee data values', () => {

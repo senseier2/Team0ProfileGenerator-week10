@@ -1,5 +1,5 @@
 const Engineer = require('../lib/Engineer');
-const engineer = new Engineer('5578932', 'Grayson', 'grayson@cowork.com', 'github');
+const engineer = new Engineer('Grayson', '5578932', 'grayson@cowork.com', 'github');
 
 describe('employeeData', () => {
     it('Collects the employee data values', () => {

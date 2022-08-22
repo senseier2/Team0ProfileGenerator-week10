@@ -25,7 +25,7 @@ const engineerCard = engineer => {
     <div class="card text-bg-dark" style="width: 18rem;">
         <div class="card-header"><h2>${engineer.name}</h2><br/><h4>Engineer</h4></div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item"<b>ID:</b> ${engineer.id}</li>
+            <li class="list-group-item"><b>ID:</b> ${engineer.id}</li>
             <li class="list-group-item"><b>Email:</b> <span id="email"><a href="mailto:${engineer.email}">${engineer.email}</a></span></li>
             <li class="list-group-item"><b>GitHub:</b> <a href="https://github.com/${engineer.github}">${engineer.github}</a></li>
         </ul>
@@ -91,7 +91,7 @@ module.exports = team => {
             </div>
         </nav>
 
-        <main><div class="d-flex justify-content-around"> ${generateHTML(team)} </div></main>
+        <main><div class="d-flex justify-content-around card-space"> ${generateHTML(team)} </div></main>
     
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" 
         integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
