@@ -5,13 +5,11 @@ main {
     margin: 1rem;
 }
 
-header {
-    color:white;
-    padding: 20px;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    font-size: 2em;
-    margin:10px;
-    background-color:rgb(196, 52, 52);
+.card {
+    margin:50px;
+}
+
+.card-space {
+    display:flex;
+    flex-wrap:wrap;
 }
